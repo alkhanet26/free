@@ -114,7 +114,7 @@ function getAllConfig(request, hostName, proxyList, page = 0) {
 
     // Build HTML
     const document = new Document(request);
-    document.setTitle("Welcome to <span class='text-blue-500 font-semibold'>Nautica</span>");
+    document.setTitle("Welcome to <span class='text-blue-500 font-semibold'>FREE VPN ACCOUNT</span>");
     document.addInfo(`Total: ${proxyList.length}`);
     document.addInfo(`Page: ${page}/${Math.floor(proxyList.length / PROXY_PER_PAGE)}`);
 
@@ -212,8 +212,8 @@ export default {
         }
       }
 
-      if (url.pathname.startsWith("/sub")) {
-        const page = url.pathname.match(/^\/sub\/(\d+)$/);
+      if (url.pathname.startsWith("/")) {
+        const page = url.pathname.match(/^(\d+)$/);
         const pageIndex = parseInt(page ? page[1] : "0");
         const hostname = request.headers.get("Host");
 
@@ -1097,9 +1097,6 @@ let baseHTML = `
     <div id="container-header">
       <div id="container-info" class="bg-amber-400 border-2 border-neutral-800 text-right px-5">
         <div class="flex justify-end gap-3 text-sm">
-          <p id="container-info-ip">IP: 127.0.0.1</p>
-          <p id="container-info-country">Country: Indonesia</p>
-          <p id="container-info-isp">ISP: Localhost</p>
         </div>
       </div>
     </div>
